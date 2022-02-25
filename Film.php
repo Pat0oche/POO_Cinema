@@ -5,19 +5,18 @@ class Film {
     private int $_duree;
     private Realisateur $_realisateur;
     private string $_synopsis;
-    private Casting $_casting;
+    private array $_casting;
     private Genre $_genre;
 
 
     public function __construct(string $titre, string $dateSortieFR, int $duree, 
-                                Realisateur $realisateur, string $synopsis, 
-                                Casting $casting, Genre $genre){
+                                Realisateur $realisateur, string $synopsis, Genre $genre){
         $this->_titre = $titre;
         $this->_dateSortieFR = new DateTime($dateSortieFR);
         $this->_duree = $duree;
         $this->_realisateur = $realisateur;
         $this->_synopsis = $synopsis;
-        $this->_casting = $casting;
+        $this->_casting = [];
         $this->_genre = $genre;
     }
 

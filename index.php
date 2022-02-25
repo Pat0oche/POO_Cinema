@@ -4,3 +4,4 @@ function chargerClasse($classe){
     }
 spl_autoload_register('chargerClasse');
 
+// ajouter les tostring dans les classes
