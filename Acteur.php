@@ -37,7 +37,7 @@ class Acteur extends Personne {
         echo "<h2>Filmographie de ".$this."</h2>";
         echo"<ul>";
         foreach ($this->_casting as $casting) {
-            echo "<li>".$casting->get_film()."</li>";
+            echo "<li>".$casting->get_film()." (".$casting->get_role().")</li>";
         }
         echo "</ul>";
     }

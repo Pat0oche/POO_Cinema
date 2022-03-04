@@ -70,7 +70,17 @@ class Film {
      */ 
     public function get_duree()
     {
-        return $this->_duree;
+        $minutes = $this->_duree;
+        $hours = mktime(0, $minutes);
+
+        $fmt = new IntlDateFormatter("fr_FR",
+                IntlDateFormatter::FULL,
+                IntlDateFormatter::FULL,
+                'Europe/Paris',
+                IntlDateFormatter::GREGORIAN,
+                "HH:mm");
+
+        return $fmt->format($hours);
     }
 
     /**
@@ -174,5 +184,39 @@ class Film {
         foreach ($this->_casting as $casting) {
             echo $casting."<br>";
         }
+    }
+
+    public function afficherInfos() {
+        $result = "<h2>Détails de ".$this."</h2>";
+        $result .= "
+        <table>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Durée</th>
+                    <th>Date de sortie</th>
+                    <th>Réalisateur</th>
+                    <th>Genre</th>
+                    <th>Synopsis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>".$this->_titre."</td>
+                    <td>".$this->get_duree()."</td>
+                    <td>".$this->_dateSortieFR->format("d / m /Y")."</td>
+                    <td>".$this->_realisateur."</td>
+                    <td>".$this->_genre."</td>
+                    <td width='50%'>".$this->_synopsis."</td>
+                </tr>
+            </tbody>
+        </table>";
+
+        $result .= "<h3>Casting</h3><ul>";
+        foreach ($this->_casting as $casting) {
+            $result .= "<li>".$casting."</li>";
+        }
+        $result .= "</ul>";
+        return $result;
     }
 }

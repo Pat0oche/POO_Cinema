@@ -2,6 +2,7 @@
 class Genre {
 
     private string $_genre;
+    private array $_film;
 
     public function __construct(string $genre){
         $this->_genre = $genre;
