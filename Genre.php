@@ -7,7 +7,10 @@ class Genre {
         $this->_genre = $genre;
         
     }
-
+    public function __toString()
+    {
+        return $this->_genre;
+    }
     /**
      * Get the value of _genre
      */ 

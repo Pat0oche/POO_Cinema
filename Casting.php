@@ -11,6 +11,10 @@ class Casting {
         $this->_film = $film;
     }
 
+    public function __toString()
+    {
+        return "Acteur : ".$this->_acteur.", Film : ".$this->_film. ", Rôle : ".$this->_role;
+    }
     /**
      * Get the value of _acteur
      */ 

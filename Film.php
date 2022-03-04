@@ -19,7 +19,10 @@ class Film {
         $this->_casting = [];
         $this->_genre = $genre;
     }
-
+    public function __toString()
+    {
+        return $this->_titre." de ".$this->_realisateur;
+    }
     /**
      * Get the value of _titre
      */ 

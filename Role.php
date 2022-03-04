@@ -7,7 +7,10 @@ class Role {
         $this->_role = $role;
         $this->_casting = [];
     }
-
+    public function __toString()
+    {
+        return $this->_role;
+    }
     /**
      * Get the value of _role
      */ 

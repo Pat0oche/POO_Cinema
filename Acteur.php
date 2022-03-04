@@ -8,7 +8,6 @@ class Acteur extends Personne {
         
     }
 
-
     /**
      * Get the value of _casting
      */ 
