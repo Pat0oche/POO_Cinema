@@ -27,4 +27,16 @@ class Realisateur extends Personne {
 
         return $this;
     }
+    public function ajouterFilm(Film $film){
+        $this->_films[] = $film;
+    }
+
+    public function filmographieReal() {
+        echo "<h2>Filmographie de ".$this."</h2>";
+        echo"<ul>";
+        foreach ($this->_films as $film) {
+            echo "<li>".$film."</li>";
+        }
+        echo "</ul>";
+    }
 }

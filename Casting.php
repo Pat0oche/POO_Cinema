@@ -9,11 +9,14 @@ class Casting {
         $this->_acteur = $acteur;
         $this->_role = $role;
         $this->_film = $film;
+        $this->_acteur->ajouterCasting($this);
+        $this->_role->ajouterCasting($this);
+        $this->_film->ajouterCasting($this);
     }
 
     public function __toString()
     {
-        return "Acteur : ".$this->_acteur.", Film : ".$this->_film. ", Rôle : ".$this->_role;
+        return "Acteur : ".$this->_acteur.", Rôle : ".$this->_role;
     }
     /**
      * Get the value of _acteur

@@ -50,4 +50,15 @@ class Role {
 
         return $this;
     }
+
+    public function ajouterCasting(Casting $casting){
+        $this->_casting[] = $casting;
+    }
+
+    public function listerRoles() {
+        echo "<h2>Liste des acteurs ayant incarnés ".$this."</h2>";
+        foreach ($this->_casting as $casting) {
+            echo $casting->get_acteur()." (".$casting->get_film().")<br>";
+        }
+    }
 }

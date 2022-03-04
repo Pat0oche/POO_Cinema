@@ -27,4 +27,18 @@ class Acteur extends Personne {
 
         return $this;
     }
+
+    public function ajouterCasting(Casting $casting){
+        $this->_casting[] = $casting;
+        // array_push($this->_livres, $livre);
+    }
+
+    public function filmographieActeur() {
+        echo "<h2>Filmographie de ".$this."</h2>";
+        echo"<ul>";
+        foreach ($this->_casting as $casting) {
+            echo "<li>".$casting->get_film()."</li>";
+        }
+        echo "</ul>";
+    }
 }

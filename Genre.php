@@ -5,6 +5,7 @@ class Genre {
 
     public function __construct(string $genre){
         $this->_genre = $genre;
+        $this->_film = [];
         
     }
     public function __toString()
@@ -30,4 +31,21 @@ class Genre {
 
         return $this;
     }
+
+    public function ajouterFilm(Film $film){
+        $this->_film[] = $film;
+    }
+
+    public function listerFilms() {
+        echo "<h2>Liste des Films du genre : ".$this."</h2>";
+        echo"<ul>";
+        $i=0;
+        foreach ($this->_film as $film) {
+            echo "<li>".$film."</li>";
+            $i++;
+        }
+        echo "</ul>";
+        echo "Soit un total de $i films.";
+    }
+    
 }

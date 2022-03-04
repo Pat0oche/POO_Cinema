@@ -15,13 +15,15 @@ class Film {
         $this->_dateSortieFR = new DateTime($dateSortieFR);
         $this->_duree = $duree;
         $this->_realisateur = $realisateur;
+        $this->_realisateur->ajouterFilm($this);
         $this->_synopsis = $synopsis;
         $this->_casting = [];
         $this->_genre = $genre;
+        $this->_genre->ajouterFilm($this);
     }
     public function __toString()
     {
-        return $this->_titre." de ".$this->_realisateur;
+        return $this->_titre;
     }
     /**
      * Get the value of _titre
@@ -161,5 +163,16 @@ class Film {
         $this->_genre = $_genre;
 
         return $this;
+    }
+
+    public function ajouterCasting(Casting $casting){
+        $this->_casting[] = $casting;
+    }
+
+    public function afficherCasting() {
+        echo "<h2>Casting de ".$this."</h2>";
+        foreach ($this->_casting as $casting) {
+            echo $casting."<br>";
+        }
     }
 }
